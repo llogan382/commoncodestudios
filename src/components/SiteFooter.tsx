@@ -13,7 +13,7 @@ export async function SiteFooter() {
     <footer className="border-t border-border">
       <Container className="flex flex-col gap-4 py-10 text-sm text-muted sm:flex-row sm:items-center sm:justify-between">
         <p>
-          © {year} {site.name}
+          © {year} {site.name} · {site.founder}
         </p>
         <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
           {nav.map((item) => (

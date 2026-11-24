@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { Container, CtaBand, PageHeader } from "@/components/ui";
+import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About",
   description:
-    "An independent senior software engineer helping software companies ship better products.",
+    `${site.founder} is an independent senior software engineer helping software companies ship better products.`,
 };
 
 // TODO: Replace with your real background, years of experience, and notable work.
@@ -34,8 +35,8 @@ export default function AboutPage() {
     <>
       <PageHeader
         eyebrow="About"
-        title="An experienced engineer, not another agency."
-        intro="Common Code Studios is an independent engineering practice. When you work with me, you get a senior engineer who writes the code, not a sales team and a rotating cast of contractors."
+        title={`Hi, I'm ${site.founder}.`}
+        intro={`${site.name} is my independent engineering practice. When you work with me, you get a senior engineer who writes the code, not a sales team and a rotating cast of contractors.`}
       />
 
       <section>
@@ -53,7 +54,7 @@ export default function AboutPage() {
               systems that have outgrown their original design.
             </p>
             <p className="text-muted">
-              I started Common Code Studios to give growing teams access to that experience
+              I started {site.name} to give growing teams access to that experience
               when they need it, whether that&apos;s shipping a critical feature, getting a stalled
               project back on track, or getting a second opinion on a big technical decision.
             </p>

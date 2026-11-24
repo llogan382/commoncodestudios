@@ -2,6 +2,7 @@
 
 export const site = {
   name: "Common Code Studios",
+  founder: "Luke Logan",
   tagline: "Experienced engineering. Practical solutions.",
   description:
     "Independent senior software engineering for software companies: full-stack development, SaaS features, API integrations, and modernization, without the overhead of another full-time hire.",

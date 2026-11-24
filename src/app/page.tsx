@@ -27,7 +27,7 @@ export default function Home() {
             Senior-level engineering when you need it.
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-muted text-pretty sm:text-xl">
-            I help software companies build better products, ship features faster, and solve
+            I&apos;m {site.founder}, an independent software engineer. I help software companies build better products, ship features faster, and solve
             complex engineering problems without the overhead of hiring another full-time
             engineer.
           </p>

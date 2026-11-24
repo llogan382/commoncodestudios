@@ -21,6 +21,10 @@ export default function ContactPage() {
           <ContactForm />
           <aside className="space-y-8 text-sm">
             <div>
+              <h2 className="font-medium">{site.founder}</h2>
+              <p className="mt-1 text-muted">Founder, {site.name}</p>
+            </div>
+            <div>
               <h2 className="font-medium">Email</h2>
               <a href={`mailto:${site.email}`} className="mt-1 block text-accent hover:text-accent-hover">
                 {site.email}
