@@ -1,36 +1,40 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Common Code Studios
 
-## Getting Started
+Marketing site: Next.js (App Router) + TypeScript + Tailwind CSS, hosted on Vercel.
+There's no database, CMS, or auth. The only server code is the contact form's Server Action.
 
-First, run the development server:
+## Pages
+
+| Route       | File                          |
+| ----------- | ----------------------------- |
+| `/`         | `src/app/page.tsx`            |
+| `/services` | `src/app/services/page.tsx`   |
+| `/about`    | `src/app/about/page.tsx`      |
+| `/contact`  | `src/app/contact/page.tsx`    |
+
+Site name, email, nav, and the service list are in `src/lib/site.ts`.
+Colors are CSS variables in `src/app/globals.css`, with light and dark themes.
+
+## Develop
 
 ```bash
+cp .env.example .env.local   # fill in values
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Contact form
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+`src/app/contact/actions.ts` sends inquiries through the [Resend](https://resend.com) HTTP API.
+It has no SDK dependency. Set these variables:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `RESEND_API_KEY`: required. Without it the form tells visitors to email you directly.
+- `CONTACT_TO_EMAIL`: your inbox.
+- `CONTACT_FROM_EMAIL`: a sender address on a domain you've verified in Resend.
 
-## Learn More
+## Deploy
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Push to GitHub.
+2. Import the repo in Vercel. The framework is detected automatically.
+3. Add the environment variables from `.env.example`.
+4. Add your domain under Project → Settings → Domains. HTTPS is set up automatically.
