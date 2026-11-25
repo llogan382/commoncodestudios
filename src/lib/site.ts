@@ -9,6 +9,8 @@ export const site = {
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://commoncodestudios.com",
   // Public business email shown on the Contact page and used as a fallback.
   email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "hello@commoncodestudios.com",
+  linkedin: "https://www.linkedin.com/in/luke-logan-6bb3164b/",
+  location: "North Carolina",
   // Optional: a Cal.com / Calendly link. Leave empty to hide the scheduling option.
   schedulingUrl: process.env.NEXT_PUBLIC_SCHEDULING_URL ?? "",
 };
@@ -19,6 +21,46 @@ export const nav = [
   { href: "/contact", label: "Contact" },
 ] as const;
 
+export const engagements = [
+  {
+    title: "Contract engineering",
+    body: "Join your team to deliver features, work through backlogs, or provide additional engineering capacity.",
+  },
+  {
+    title: "Project-based development",
+    body: "Take ownership of a defined project, integration, or technical initiative from planning through delivery.",
+  },
+  {
+    title: "Ongoing consulting",
+    body: "Provide continued engineering support and technical guidance as your needs evolve.",
+  },
+  {
+    title: "Technical problem-solving",
+    body: "Help untangle complex bugs, performance issues, architecture concerns, or challenging development work.",
+  },
+] as const;
+
+export const highlights = [
+  {
+    title: "SaaS product development",
+    body: "Rebuilt a legacy service used by 16,000 realtors and relaunched it as a nationwide SaaS product on serverless AWS.",
+    stat: "16,000",
+    statLabel: "users on the rebuilt platform",
+  },
+  {
+    title: "Reliability & performance",
+    body: "Improved integrations and test coverage after launch, and cut turnaround time on client systems in banking and payments.",
+    stat: "24%",
+    statLabel: "fewer production errors",
+  },
+  {
+    title: "System modernization",
+    body: "Migrated legacy apps to modern frameworks and rolled out SSO and MFA across five products without disrupting users.",
+    stat: "5",
+    statLabel: "products secured with SSO & MFA",
+  },
+] as const;
+
 export type Service = {
   title: string;
   summary: string;
@@ -27,19 +69,21 @@ export type Service = {
 
 export const services: Service[] = [
   {
-    title: "Full-stack application development",
+    title: "Product & Feature Development",
     summary:
-      "End-to-end delivery of features and products, from database schema to polished UI.",
+      "Build new products, deliver features, and turn product ideas into reliable, production-ready software.",
     details: [
-      "New features scoped, built, tested, and shipped",
-      "Clean handoff with documentation your team can maintain",
-      "Comfortable joining an existing codebase and conventions",
+      "Feature development",
+      "MVPs",
+      "SaaS applications",
+      "End-to-end implementation",
+      "Product enhancements",
     ],
   },
   {
     title: "React & TypeScript development",
     summary:
-      "Fast, accessible, maintainable frontends built with modern React and strict TypeScript.",
+"Create fast, intuitive, and maintainable web applications that deliver a great experience for users.",
     details: [
       "Next.js and single-page applications",
       "Component libraries and design-system work",
@@ -47,9 +91,9 @@ export const services: Service[] = [
     ],
   },
   {
-    title: "Node.js & API development",
+    title: "Backend Development & Integrations",
     summary:
-      "Reliable backend services and integrations that connect your product to the tools your customers use.",
+"Build dependable backend services, APIs, and integrations that keep applications and systems connected.",
     details: [
       "REST and GraphQL API design",
       "Third-party integrations: payments, CRMs, webhooks",
@@ -57,9 +101,9 @@ export const services: Service[] = [
     ],
   },
   {
-    title: "SaaS product development",
+    title: "Modernization & Technical Consulting",
     summary:
-      "Help taking a SaaS product from idea to launch, or growing one that is already in production.",
+"Improve existing systems, resolve technical challenges, and make confident engineering decisions without unnecessary rewrites.",
     details: [
       "Multi-tenant architecture, billing, and permissions",
       "MVPs built to grow rather than be rewritten",

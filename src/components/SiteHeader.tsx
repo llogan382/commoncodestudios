@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { nav, site } from "@/lib/site";
+import { Logo } from "./Logo";
 import { Container } from "./ui";
 
 export function SiteHeader() {
@@ -11,14 +12,13 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-10 border-b border-border bg-background/85 backdrop-blur">
       <Container className="flex h-16 items-center justify-between gap-4">
-        <Link href="/" className="flex items-center gap-2 font-semibold tracking-tight">
-          <span
-            aria-hidden
-            className="grid size-7 place-items-center rounded-md bg-accent font-mono text-xs text-accent-foreground"
-          >
-            {"</>"}
+        <Link href="/" aria-label={`${site.name} home`} className="shrink-0">
+          <span className="sm:hidden">
+            <Logo showWordmark={false} />
           </span>
-          <span className="hidden sm:inline">{site.name}</span>
+          <span className="hidden sm:block">
+            <Logo />
+          </span>
         </Link>
         <nav aria-label="Main" className="flex items-center gap-1 text-sm">
           {nav.map((item) => {

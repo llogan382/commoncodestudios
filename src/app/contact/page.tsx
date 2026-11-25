@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Container, PageHeader } from "@/components/ui";
 import { site } from "@/lib/site";
 import { ContactForm } from "./ContactForm";
@@ -17,12 +18,23 @@ export default function ContactPage() {
         intro="Share a few details about what you're building and where you could use help. I usually reply within one business day."
       />
       <section>
-        <Container className="grid gap-12 py-16 sm:py-20 lg:grid-cols-[1fr_18rem]">
+        <Container className="grid gap-8 py-16 sm:py-20 lg:grid-cols-[1fr_20rem]">
           <ContactForm />
-          <aside className="space-y-8 text-sm">
+          <aside className="h-fit space-y-8 rounded-2xl border border-border bg-surface p-6 text-sm">
             <div>
-              <h2 className="font-medium">{site.founder}</h2>
-              <p className="mt-1 text-muted">Founder, {site.name}</p>
+              <div className="flex items-center gap-3">
+                <Image
+                  src="/luke-logan.jpg"
+                  alt=""
+                  width={96}
+                  height={96}
+                  className="size-12 rounded-full border border-border object-cover"
+                />
+                <div>
+                  <h2 className="font-medium">{site.founder}</h2>
+                  <p className="text-muted">Founder, {site.name}</p>
+                </div>
+              </div>
             </div>
             <div>
               <h2 className="font-medium">Email</h2>
@@ -46,10 +58,19 @@ export default function ContactPage() {
             )}
             <div>
               <h2 className="font-medium">What happens next</h2>
-              <ol className="mt-2 list-decimal space-y-1 pl-4 text-muted">
-                <li>I review your message and reply with any questions.</li>
-                <li>We have a short call to discuss scope and fit.</li>
-                <li>I send a proposal with timeline and pricing.</li>
+              <ol className="mt-3 space-y-3 text-muted">
+                {[
+                  "I review your message and reply with any questions.",
+                  "We have a short call to discuss scope and fit.",
+                  "I send a proposal with timeline and pricing.",
+                ].map((step, i) => (
+                  <li key={step} className="flex gap-3">
+                    <span className="grid size-6 shrink-0 place-items-center rounded-full bg-accent-soft font-mono text-xs text-accent">
+                      {i + 1}
+                    </span>
+                    {step}
+                  </li>
+                ))}
               </ol>
             </div>
           </aside>

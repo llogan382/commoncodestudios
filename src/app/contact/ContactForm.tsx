@@ -13,7 +13,7 @@ export function ContactForm() {
 
   if (state.status === "success") {
     return (
-      <div role="status" className="rounded-xl border border-border bg-accent-soft p-8">
+      <div role="status" className="rounded-2xl border border-border bg-accent-soft p-8">
         <h2 className="text-lg font-semibold">Thanks, your message is on its way.</h2>
         <p className="mt-2 text-muted">I&apos;ll get back to you within one business day.</p>
       </div>
@@ -23,7 +23,7 @@ export function ContactForm() {
   const values = state.status === "error" ? state.fields : undefined;
 
   return (
-    <form action={action} className="space-y-5 rounded-xl border border-border bg-surface p-6 sm:p-8">
+    <form action={action} className="space-y-5 rounded-2xl border border-border bg-surface p-6 shadow-lg sm:p-8">
       <div className="grid gap-5 sm:grid-cols-2">
         <label className="block text-sm font-medium">
           Name
